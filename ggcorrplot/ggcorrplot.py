@@ -16,7 +16,6 @@ def hc_cormat_order(cormat, method='complete'):
     return dict({"order":order,"height":Z[:,2],"method":method,
                 "merge":Z[:,:2],"n_obs":Z[:,3],"data":cormat})
 
-
 def match_arg(x, lst):
     return [el for el in lst if x in el][0]
 
@@ -73,7 +72,7 @@ def cor_pmat(x,**kwargs):
 def ggcorrplot(x,
                method = "square",
                type = "full",
-               ggtheme =pn.theme_minimal(),
+               ggtheme = pn.theme_minimal(),
                title = None,
                show_legend = True,
                legend_title = "Corr",
@@ -100,7 +99,6 @@ def ggcorrplot(x,
     if p_mat is not None:
         if not isinstance(p_mat,pd.DataFrame):
             raise ValueError("Error : 'p_mat' must be a DataFrame.")
-
 
     type = match_arg(type, ["full","lower","upper"])
     method = match_arg(method,["square",'circle'])
