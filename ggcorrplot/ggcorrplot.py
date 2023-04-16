@@ -8,6 +8,8 @@ import plydata as ply
 from scipy.cluster import hierarchy
 
 def hc_cormat_order(cormat, method='complete'):
+    if not isinstance(cormat,pd.DataFrame):
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     X = (1-cormat)/2
     Z = hierarchy.linkage(X,method=method, metric="euclidean")
     order = hierarchy.leaves_list(Z)
@@ -28,7 +30,7 @@ def remove_diag(cormat):
     if cormat is None:
         return cormat
     if not isinstance(cormat,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     np.fill_diagonal(cormat.values, np.nan)
     return cormat
 
@@ -36,7 +38,7 @@ def get_upper_tri(cormat,show_diag=False):
     if cormat is None:
         return cormat
     if not isinstance(cormat,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     cormat = pd.DataFrame(np.triu(cormat),index=cormat.index,columns=cormat.columns)
     cormat.values[np.tril_indices(cormat.shape[0], -1)] = np.nan
     if not show_diag:
@@ -47,7 +49,7 @@ def get_lower_tri(cormat,show_diag=False):
     if cormat is None:
         return cormat
     if not isinstance(cormat,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     cormat = pd.DataFrame(np.tril(cormat),index=cormat.index,columns=cormat.columns)
     cormat.values[np.triu_indices(cormat.shape[0], 1)] = np.nan
     if not show_diag:
@@ -56,7 +58,7 @@ def get_lower_tri(cormat,show_diag=False):
 
 def cor_pmat(x,**kwargs):
     if not isinstance(x,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'x' must be a DataFrame.")
     y = np.array(x)
     n = y.shape[1]
     p_mat = np.zeros((n,n))
@@ -93,7 +95,7 @@ def ggcorrplot(x,
                digits = 2):
     
     if not isinstance(x,pd.DataFrame):
-        raise ValueError("Error : 'corr' must be a DataFrame.")
+        raise ValueError("Error : 'x' must be a DataFrame.")
     
     if p_mat is not None:
         if not isinstance(p_mat,pd.DataFrame):
