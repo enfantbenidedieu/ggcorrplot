@@ -6,12 +6,14 @@ import plotnine as pn
 import scipy.stats as st
 import plydata as ply
 from scipy.cluster import hierarchy
+from scipy.spatial.distance import squareform
+from scientisttools.extractfactor import get_melt
 
 def hc_cormat_order(cormat, method='complete'):
     if not isinstance(cormat,pd.DataFrame):
         raise ValueError("Error : 'cormat' must be a DataFrame.")
     X = (1-cormat)/2
-    Z = hierarchy.linkage(X,method=method, metric="euclidean")
+    Z = hierarchy.linkage(squareform(X),method=method, metric="euclidean")
     order = hierarchy.leaves_list(Z)
     return dict({"order":order,"height":Z[:,2],"method":method,
                 "merge":Z[:,:2],"n_obs":Z[:,3],"data":cormat})
@@ -79,6 +81,8 @@ def ggcorrplot(x,
                show_diag = None,
                colors = ["blue","white","red"],
                outline_color = "gray",
+               hc_order = False,
+               hc_method = "complete",
                lab = False,
                lab_col = "black",
                lab_size = 11,
@@ -109,8 +113,15 @@ def ggcorrplot(x,
             show_diag = True
         else:
             show_diag = False
-    x.columns = pd.Categorical(x.columns,categories=x.columns)
+
     corr = x.corr().round(decimals=digits)
+
+    if hc_order:
+        ord = hc_cormat_order(corr,method=hc_method)["order"]
+        corr = corr.iloc[ord,ord]
+        if p_mat is not None:
+            p_mat = p_mat.iloc[ord,ord]
+            p_mat = p_mat.round(decimals=digits)
 
     if not show_diag:
         corr = remove_diag(corr)
@@ -128,15 +139,15 @@ def ggcorrplot(x,
             p_mat = get_upper_tri(corr,show_diag)
     
     # Melt corr and p_mat
-    corr = corr.stack().reset_index()
-    corr.columns = ['Var1','Var2','value']
-
+    corr.columns = pd.Categorical(corr.columns,categories=corr.columns)
+    corr.index = pd.Categorical(corr.columns,categories=corr.columns)
+    corr = get_melt(corr)
+    
     corr = corr >> ply.define(pvalue=np.nan)
     corr = corr >> ply.define(signif=np.nan)
 
     if p_mat is not None:
-        p_mat = p_mat.stack().reset_index()
-        p_mat.columns = ['Var1','Var2','value']
+        p_mat = get_melt(p_mat)
         corr = corr >> ply.define(coef="value")
         corr = corr >> ply.mutate(pvalue=p_mat.value)
         corr["signif"] = np.where(p_mat.value <= sig_level,1,0)
