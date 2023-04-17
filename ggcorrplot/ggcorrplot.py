@@ -7,7 +7,11 @@ import scipy.stats as st
 import plydata as ply
 from scipy.cluster import hierarchy
 from scipy.spatial.distance import squareform
-from scientisttools.extractfactor import get_melt
+
+def get_melt(X):
+    if not isinstance(X,pd.DataFrame):
+        raise ValueError("X must be a dataframe")
+    return X.stack().rename_axis(('Var1', 'Var2')).reset_index(name='value')
 
 def hc_cormat_order(cormat, method='complete'):
     if not isinstance(cormat,pd.DataFrame):
