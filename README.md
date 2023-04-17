@@ -1,6 +1,6 @@
 # ggcorrplot: Visualization of a correlation matrix using plotnine
 
-The 'ggcorrplot' package can be used to visualize easily a correlation matrix using 'plotnine'. It provides a function for computing a matrix of correlation p-values.
+The **ggcorrplot** package can be used to **visualize easily a correlation matrix** using **plotnine**. It provides a solution for **reordering** the correlation matrix and displays the **significance level** on the correlogram. It includes also a function for computing a matrix of **correlation p-values**.
 
 ## Installation
 
@@ -24,6 +24,5 @@ You can install ggcorrplot from `pypi` using pip
 ```{python,echo=TRUE,eval=FALSE}
 pip install ggcorrplot
 ```
-
 Find out more at https://github.com/enfantbenidedieu/ggcorrplot/blob/master/ggcorrplot.ipynb.
     
