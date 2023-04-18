@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 
 import numpy as np
 import pandas as pd
@@ -6,14 +6,21 @@ import plotnine as pn
 import scipy.stats as st
 import plydata as ply
 from scipy.cluster import hierarchy
+from scipy.spatial.distance import squareform
+
+def get_melt(X):
+    if not isinstance(X,pd.DataFrame):
+        raise ValueError("Error : 'X' must be a DataFrame")
+    return X.stack().rename_axis(('Var1', 'Var2')).reset_index(name='value')
 
 def hc_cormat_order(cormat, method='complete'):
+    if not isinstance(cormat,pd.DataFrame):
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     X = (1-cormat)/2
-    Z = hierarchy.linkage(X,method=method, metric="euclidean")
+    Z = hierarchy.linkage(squareform(X),method=method, metric="euclidean")
     order = hierarchy.leaves_list(Z)
     return dict({"order":order,"height":Z[:,2],"method":method,
                 "merge":Z[:,:2],"n_obs":Z[:,3],"data":cormat})
-
 
 def match_arg(x, lst):
     return [el for el in lst if x in el][0]
@@ -28,7 +35,7 @@ def remove_diag(cormat):
     if cormat is None:
         return cormat
     if not isinstance(cormat,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     np.fill_diagonal(cormat.values, np.nan)
     return cormat
 
@@ -36,7 +43,7 @@ def get_upper_tri(cormat,show_diag=False):
     if cormat is None:
         return cormat
     if not isinstance(cormat,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     cormat = pd.DataFrame(np.triu(cormat),index=cormat.index,columns=cormat.columns)
     cormat.values[np.tril_indices(cormat.shape[0], -1)] = np.nan
     if not show_diag:
@@ -47,7 +54,7 @@ def get_lower_tri(cormat,show_diag=False):
     if cormat is None:
         return cormat
     if not isinstance(cormat,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'cormat' must be a DataFrame.")
     cormat = pd.DataFrame(np.tril(cormat),index=cormat.index,columns=cormat.columns)
     cormat.values[np.triu_indices(cormat.shape[0], 1)] = np.nan
     if not show_diag:
@@ -56,7 +63,7 @@ def get_lower_tri(cormat,show_diag=False):
 
 def cor_pmat(x,**kwargs):
     if not isinstance(x,pd.DataFrame):
-        raise ValueError("Error : Need a DataFrame.")
+        raise ValueError("Error : 'x' must be a DataFrame.")
     y = np.array(x)
     n = y.shape[1]
     p_mat = np.zeros((n,n))
@@ -71,13 +78,15 @@ def cor_pmat(x,**kwargs):
 def ggcorrplot(x,
                method = "square",
                type = "full",
-               ggtheme =pn.theme_minimal(),
+               ggtheme = pn.theme_minimal(),
                title = None,
                show_legend = True,
                legend_title = "Corr",
                show_diag = None,
                colors = ["blue","white","red"],
                outline_color = "gray",
+               hc_order = False,
+               hc_method = "complete",
                lab = False,
                lab_col = "black",
                lab_size = 11,
@@ -93,12 +102,11 @@ def ggcorrplot(x,
                digits = 2):
     
     if not isinstance(x,pd.DataFrame):
-        raise ValueError("Error : 'corr' must be a DataFrame.")
+        raise ValueError("Error : 'x' must be a DataFrame.")
     
     if p_mat is not None:
         if not isinstance(p_mat,pd.DataFrame):
             raise ValueError("Error : 'p_mat' must be a DataFrame.")
-
 
     type = match_arg(type, ["full","lower","upper"])
     method = match_arg(method,["square",'circle'])
@@ -109,8 +117,15 @@ def ggcorrplot(x,
             show_diag = True
         else:
             show_diag = False
-    x.columns = pd.Categorical(x.columns,categories=x.columns)
+
     corr = x.corr().round(decimals=digits)
+
+    if hc_order:
+        ord = hc_cormat_order(corr,method=hc_method)["order"]
+        corr = corr.iloc[ord,ord]
+        if p_mat is not None:
+            p_mat = p_mat.iloc[ord,ord]
+            p_mat = p_mat.round(decimals=digits)
 
     if not show_diag:
         corr = remove_diag(corr)
@@ -128,15 +143,15 @@ def ggcorrplot(x,
             p_mat = get_upper_tri(corr,show_diag)
     
     # Melt corr and p_mat
-    corr = corr.stack().reset_index()
-    corr.columns = ['Var1','Var2','value']
-
+    corr.columns = pd.Categorical(corr.columns,categories=corr.columns)
+    corr.index = pd.Categorical(corr.columns,categories=corr.columns)
+    corr = get_melt(corr)
+    
     corr = corr >> ply.define(pvalue=np.nan)
     corr = corr >> ply.define(signif=np.nan)
 
     if p_mat is not None:
-        p_mat = p_mat.stack().reset_index()
-        p_mat.columns = ['Var1','Var2','value']
+        p_mat = get_melt(p_mat)
         corr = corr >> ply.define(coef="value")
         corr = corr >> ply.mutate(pvalue=p_mat.value)
         corr["signif"] = np.where(p_mat.value <= sig_level,1,0)
