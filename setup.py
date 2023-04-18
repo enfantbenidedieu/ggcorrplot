@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1' 
-DESCRIPTION = "Visualization of a Correlation Matrix using 'plotnine'"
-LONG_DESCRIPTION = """The 'ggcorrplot' package can be used to visualize easily a correlation matrix using 'plotnine'. It provides a function for computing a matrix of correlation p-values."""
+VERSION = '0.0.2' 
+DESCRIPTION = "Visualization of a Correlation Matrix using plotnine"
+LONG_DESCRIPTION = """The ggcorrplot package can be used to visualize easily a correlation matrix using plotnine. It provides a solution for reordering the correlation matrix and displays the significance level on the correlogram. It includes also a function for computing a matrix of correlation p-values."""
 
 # Setting up
 setup(
