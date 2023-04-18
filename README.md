@@ -25,9 +25,4 @@ You can install ggcorrplot from `pypi` using pip
 pip install ggcorrplot
 ```
 Find out more at https://github.com/enfantbenidedieu/ggcorrplot/blob/master/ggcorrplot.ipynb.
-
-
-```{python,eval=TRUE}
-print("bonjour")
-```
     
