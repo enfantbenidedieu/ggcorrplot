@@ -10,7 +10,7 @@ from scipy.spatial.distance import squareform
 
 def get_melt(X):
     if not isinstance(X,pd.DataFrame):
-        raise ValueError("X must be a dataframe")
+        raise ValueError("Error : 'X' must be a DataFrame")
     return X.stack().rename_axis(('Var1', 'Var2')).reset_index(name='value')
 
 def hc_cormat_order(cormat, method='complete'):
