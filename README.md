@@ -27,7 +27,7 @@ pip install ggcorrplot
 Find out more at https://github.com/enfantbenidedieu/ggcorrplot/blob/master/ggcorrplot.ipynb.
 
 
-```{python}
+```{python,eval=TRUE}
 print("bonjour")
 ```
     
