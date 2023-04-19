@@ -86,13 +86,7 @@
 <span id="hwggcorrplot"></span><h2>ggcorrplot<a class="headerlink" href="#ggcorrplot" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<dl class="simple">
-<dt>ggcorrplot(x,method = “square”,type = “full”,ggtheme = pn.theme_minimal(),title = None,show_legend = True,</dt><dd><p>legend_title = “Corr”,show_diag = None,colors = [“blue”,”white”,”red”],outline_color = “gray”,
-hc_order = False,hc_method = “complete”,lab = False,lab_col = “black”,lab_size = 11,p_mat = None,
-sig_level=0.05,insig = “pch”,pch = 4,pch_col = “black”,pch_cex = 5,tl_cex = 12,tl_col = “black”,
-tl_srt = 45,digits = 2)</p>
-</dd>
-</dl>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>ggcorrplot**(x,method = “square”,type = “full”,ggtheme = pn.theme_minimal(),title = None,show_legend = True,legend_title = “Corr”,show_diag = None,colors = [“blue”,”white”,”red”],outline_color = “gray”,hc_order = False,hc_method = “complete”,lab = False,lab_col = “black”,lab_size = 11,p_mat = None,sig_level=0.05,insig = “pch”,pch = 4,pch_col = “black”,pch_cex = 5,tl_cex = 12,tl_col = “black”,tl_srt = 45,digits = 2)</p>
 </div>
 <p>A graphical display of a correlation matrix using <code class="docutils literal notranslate"><span class="pre">plotnine</span></code>.</p>
 <ul class="simple">
@@ -113,7 +107,7 @@ tl_srt = 45,digits = 2)</p>
 <li><p><strong>lab</strong> (bool) : if <code class="docutils literal notranslate"><span class="pre">True</span></code>, add correlation coefficient on the plot.</p></li>
 <li><p><strong>lab_col</strong> (str) :  color to be used for the correlation coefficient labels, used when <code class="docutils literal notranslate"><span class="pre">lab=True</span></code>.</p></li>
 <li><p><strong>lab_size</strong> (int) : size to be used for correlation coefficient labels, used when <code class="docutils literal notranslate"><span class="pre">lab=True</span></code>.</p></li>
-<li><p><strong>p_mat</strong> (DataFrame) : DataFrame of p-value. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, arguments <code class="docutils literal notranslate"><span class="pre">sig_level</span></code>, <code class="docutils literal notranslate"><span class="pre">insig</span></code>, <code class="docutils literal notranslate"><span class="pre">pch`</span></code>, <code class="docutils literal notranslate"><span class="pre">pch_col</span></code>, <a href="#id1"><span class="problematic" id="id2">``</span></a>pch_cex``is invalid.</p></li>
+<li><p><strong>p_mat</strong> (DataFrame) : DataFrame of p-value. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, arguments <code class="docutils literal notranslate"><span class="pre">sig_level</span></code>, <code class="docutils literal notranslate"><span class="pre">insig</span></code>, <code class="docutils literal notranslate"><span class="pre">pch`</span></code>, <code class="docutils literal notranslate"><span class="pre">pch_col</span></code>, <a href="#id3"><span class="problematic" id="id4">``</span></a>pch_cex``is invalid.</p></li>
 <li><p><strong>sig_level</strong> (float) :significant level, if the p-value in p_mat is bigger that sig_level, then the corresponding correlation coefficient is regarded as insignificant.</p></li>
 <li><p><strong>insig</strong> (str) : specialized insignificant correlation coefficients,  <code class="docutils literal notranslate"><span class="pre">pch</span></code> (default), <code class="docutils literal notranslate"><span class="pre">blank</span></code>. If <code class="docutils literal notranslate"><span class="pre">blank</span></code>, wipe away the corresponding glyphs; if <code class="docutils literal notranslate"><span class="pre">pch</span></code>, add string (see <code class="docutils literal notranslate"><span class="pre">pch</span></code> for details) on corresponding glyphs.</p></li>
 <li><p><strong>pch</strong> (int) : add string on the glyphs of insignificant correlation coefficients (only valid when insig is <code class="docutils literal notranslate"><span class="pre">pch</span></code>). Default value is 4.</p></li>
@@ -133,7 +127,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwgetmelt"></span><h2>get_melt<a class="headerlink" href="#get-melt" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>get_melt(x)</p>
+<p><a href="#id5"><span class="problematic" id="id6">**</span></a>get_melt**(x)</p>
 </div>
 <p>Unpivot a DataFrame from wide to long format, optionally leaving identifiers set.</p>
 <ul class="simple">
@@ -151,7 +145,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwhccormatorder"></span><h2>hc_cormat_order<a class="headerlink" href="#hc-cormat-order" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>hc_cormat_order(cormat, method=’complete’)</p>
+<p><a href="#id7"><span class="problematic" id="id8">**</span></a>hc_cormat_order**(cormat, method=’complete’)</p>
 </div>
 <p>Performs hierarchical clustering on a distance or similarity structure.</p>
 <ul class="simple">
@@ -170,7 +164,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwmatcharg"></span><h2>match_arg<a class="headerlink" href="#match-arg" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>match_arg(x, lst)</p>
+<p><a href="#id9"><span class="problematic" id="id10">**</span></a>match_arg**(x, lst)</p>
 </div>
 <p>Argument verification using partial matching.</p>
 <ul class="simple">
@@ -188,7 +182,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwnopanel"></span><h2>no_panel<a class="headerlink" href="#no-panel" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>no_panel()</p>
+<p><a href="#id11"><span class="problematic" id="id12">**</span></a>no_panel**()</p>
 </div>
 <p>Customize the non - data componennts of your plots.</p>
 </section>
@@ -196,7 +190,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwremovediag"></span><h2>remove_diag<a class="headerlink" href="#remove-diag" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>remove_diag(cormat)</p>
+<p><a href="#id13"><span class="problematic" id="id14">**</span></a>remove_diag**(cormat)</p>
 </div>
 <p>Fill the main diagonal of the correlation matrix with NA.</p>
 <ul class="simple">
@@ -213,7 +207,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwgetuppertri"></span><h2>get_upper_tri<a class="headerlink" href="#get-upper-tri" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>get_upper_tri(cormat,show_diag=False)</p>
+<p><a href="#id15"><span class="problematic" id="id16">**</span></a>get_upper_tri**(cormat,show_diag=False)</p>
 </div>
 <p>Get upper triangle of the correlation matrix.</p>
 <ul class="simple">
@@ -232,7 +226,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwgetlowertri"></span><h2>get_lower_tri<a class="headerlink" href="#get-lower-tri" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>get_lower_tri(cormat,show_diag=False)</p>
+<p><a href="#id17"><span class="problematic" id="id18">**</span></a>get_lower_tri**(cormat,show_diag=False)</p>
 </div>
 <p>Get lower triangle of the correlation matrix.</p>
 <ul class="simple">
@@ -251,7 +245,7 @@ tl_srt = 45,digits = 2)</p>
 <span id="hwcorpmat"></span><h2>cor_pmat<a class="headerlink" href="#cor-pmat" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>cor_pmat(x,**kwargs)</p>
+<p>__cor_pmat__(x,**kwargs)</p>
 </div>
 <p>Compute a correlation matrix p-values.</p>
 <ul class="simple">

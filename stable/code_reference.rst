@@ -8,11 +8,7 @@ ggcorrplot
 ----------
 
 .. note::
-    ggcorrplot(x,method = "square",type = "full",ggtheme = pn.theme_minimal(),title = None,show_legend = True,
-               legend_title = "Corr",show_diag = None,colors = ["blue","white","red"],outline_color = "gray",
-               hc_order = False,hc_method = "complete",lab = False,lab_col = "black",lab_size = 11,p_mat = None,
-               sig_level=0.05,insig = "pch",pch = 4,pch_col = "black",pch_cex = 5,tl_cex = 12,tl_col = "black",
-               tl_srt = 45,digits = 2)
+    ggcorrplot(x,method = "square",type = "full",ggtheme = pn.theme_minimal(),title = None,show_legend = True,legend_title = "Corr",show_diag = None,colors = ["blue","white","red"],outline_color = "gray",hc_order = False,hc_method = "complete",lab = False,lab_col = "black",lab_size = 11,p_mat = None,sig_level=0.05,insig = "pch",pch = 4,pch_col = "black",pch_cex = 5,tl_cex = 12,tl_col = "black",tl_srt = 45,digits = 2)
 
 A graphical display of a correlation matrix using ``plotnine``.
   
@@ -71,6 +67,8 @@ Performs hierarchical clustering on a distance or similarity structure.
     * **cormat** (`DataFrame <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html/>`) : correlation matrix
     * **method** (`str <https://docs.python.org/3/library/stdtypes.html#str/>`) : the linkage algorithm to use. See the https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html
 * **Returns** : dictionary of 6 elements : order of variables, height, method, merge, numbers of observations and the initial dataframe.
+
+
 .. _hwmatcharg:
 
 match_arg
