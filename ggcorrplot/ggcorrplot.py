@@ -8,10 +8,10 @@ import plydata as ply
 from scipy.cluster import hierarchy
 from scipy.spatial.distance import squareform
 
-def get_melt(X):
-    if not isinstance(X,pd.DataFrame):
-        raise ValueError("Error : 'X' must be a DataFrame")
-    return X.stack().rename_axis(('Var1', 'Var2')).reset_index(name='value')
+def get_melt(x):
+    if not isinstance(x,pd.DataFrame):
+        raise ValueError("Error : 'x' must be a DataFrame")
+    return x.stack().rename_axis(('Var1', 'Var2')).reset_index(name='value')
 
 def hc_cormat_order(cormat, method='complete'):
     if not isinstance(cormat,pd.DataFrame):
