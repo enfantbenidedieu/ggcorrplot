@@ -27,6 +27,7 @@ ggcorrplot can be installed from ``pypi`` as follow::
     
     pip install ggcorrplot
 
+
 .. _hwdependencies:
 
 Dependencies
