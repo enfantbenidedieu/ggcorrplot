@@ -61,20 +61,6 @@ hc_cormat_order
 .. note::
     hc_cormat_order(cormat, method='complete')
 
-
-
-.. code-block:: python
-    def hc_cormat_order(cormat, method='complete'):
-        if not isinstance(cormat,pd.DataFrame):
-            raise ValueError("Error : 'cormat' must be a DataFrame.")
-        X = (1-cormat)/2
-        Z = hierarchy.linkage(squareform(X),method=method, metric="euclidean")
-        order = hierarchy.leaves_list(Z)
-        return dict({"order":order,"height":Z[:,2],"method":method,
-                     "merge":Z[:,:2],"n_obs":Z[:,3],"data":cormat})
-
-
-
 Performs hierarchical clustering on a distance or similarity structure.
 
 * **Parameters**:
