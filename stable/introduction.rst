@@ -8,7 +8,7 @@ What is ggcorrplot?
 -------------------
 
 .. note::
-   **ggcorrplot** is a comprehensive library for visualization of a correlation matrix. 
+   **ggcorrplot** is a comprehensive library for visualization a correlation matrix. 
    The **ggcorrplot** package can be used to **visualize easily** a **correlation matrix** using ``plotnine``. 
    It provides a solution for **reordering** the correlation matrix and displays the **significance level** on the correlogram. 
    It includes also a function for computing a matrix of **correlation p-values**. 
