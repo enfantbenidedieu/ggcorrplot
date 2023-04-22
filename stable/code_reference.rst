@@ -81,7 +81,8 @@ Argument verification using partial matching.
 
 * **Parameters**:
     * **x** (str) : a string arguments.
-    * **arg** (`list <https://docs.python.org/3/library/stdtypes.html#list/>`) : a string vector of candidate values.
+    * **lst** (`list <https://docs.python.org/3/library/stdtypes.html#list/>`) : a list of candidate values.
+* **Return"** : The unabbreviated version of the exact or unique partial match if there is one
 
 .. _hwnopanel:
 
@@ -105,6 +106,7 @@ Fill the main diagonal of the correlation matrix with NA.
 
 * **Parameters** :
     * **cormat** (DataFrame) : correlation matrix.
+* **Return** : This function modifies the input array in-place 
   
 .. _hwgetuppertri:
 
@@ -133,7 +135,7 @@ Get lower triangle of the correlation matrix.
 
 * **Parameters**:
     * **cormat** (DataFrame) : correlation matrix
-    * **show_diag** (bool) : logical. If ``True``, displays the correlation coefficients.
+    * **show_diag** (bool) : boolean. If ``True``, displays the correlation coefficients.
 * **Returns** : Lower triangle of a correlation matrix.
 
 .. _hwcorpmat:
@@ -147,7 +149,7 @@ cor_pmat
 Compute a correlation matrix p-values.
 
 * **Parameters** :
-    * **x** (DataFrame) : Two-dimensional, size-mutable, potentially heterogeneous tabular data.
+    * **x** ([DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)) : DataFrame containing multiple variables and observations. Each column represents a variable, and each row a single observation of all those variables.
     * ``**kwargs`` : other arguments to be passed to the function  https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html.
 
 
