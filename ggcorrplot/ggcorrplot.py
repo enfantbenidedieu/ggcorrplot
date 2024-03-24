@@ -99,7 +99,23 @@ def ggcorrplot(x,
                tl_cex = 12,
                tl_col = "black",
                tl_srt = 45,
-               digits = 2):
+               xtickslab_rotation = 45,
+               digits = 2) -> pn:
+    """
+    Visualization of a correlation matrix using plotnine
+    ----------------------------------------------------
+
+    Description
+    -----------
+
+    * ggcorrplot(): A graphical display of a correlation matrix using plotnine.
+    
+    * cor_pmat(): Compute a correlation matrix p-values.
+    
+    Parameters
+    ---------
+    
+    """
     
     if not isinstance(x,pd.DataFrame):
         raise ValueError("Error : 'x' must be a DataFrame.")
@@ -224,6 +240,13 @@ def ggcorrplot(x,
     
     # Removing panel
     p = p + no_panel()
+
+    if xtickslab_rotation > 5:
+        ha = "right"
+    if xtickslab_rotation == 90:
+        ha = "center"
+    # Rotation
+    p = p + pn.theme(axis_text_x = pn.element_text(rotation = xtickslab_rotation,ha=ha))
 
     return p
 
