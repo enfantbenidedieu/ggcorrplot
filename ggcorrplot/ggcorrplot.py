@@ -147,19 +147,19 @@ def ggcorrplot(x,
     corr.index = pd.Categorical(corr.columns,categories=corr.columns)
     corr = get_melt(corr)
     
-    corr = corr >> ply.define(pvalue=np.nan)
-    corr = corr >> ply.define(signif=np.nan)
+    corr = ply.define(corr,pvalue=np.nan)
+    corr = ply.define(corr,signif=np.nan)
 
     if p_mat is not None:
         p_mat = get_melt(p_mat)
-        corr = corr >> ply.define(coef="value")
-        corr = corr >> ply.mutate(pvalue=p_mat.value)
+        corr = ply.define(corr,coef="value")
+        corr = ply.mutate(corr,pvalue=p_mat.value)
         corr["signif"] = np.where(p_mat.value <= sig_level,1,0)
-        p_mat = p_mat.query(f'value > {sig_level}')
+        p_mat = p_mat.query('value > @sig_level')
         if insig == "blank":
-            corr = corr >> ply.mutate(value="value*signif")
+            corr = ply.mutate(corr,value="value*signif")
     
-    corr = corr >> ply.define(abs_corr="abs(value)*10")
+    corr = ply.define(corr,abs_corr="abs(value)*10")
 
     p = pn.ggplot(corr,pn.aes(x="Var1",y="Var2",fill="value"))
     

@@ -3,5 +3,5 @@ from __future__ import absolute_import
 
 from .ggcorrplot import *
 
-name = "fanalysis"
+name = "ggcorrplot"
 __version__ = "0.0.2"
