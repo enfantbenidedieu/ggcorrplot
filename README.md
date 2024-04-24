@@ -9,12 +9,11 @@ The **ggcorrplot** package can be used to **visualize easily a correlation matri
 ggcorrplot requires :
 
 ```{python,echo=TRUE,eval=FALSE}
-Python 3
-numpy>=1.24.2
-pandas>=2.0.0
+Python >=3.10.5
+numpy>=1.24.4
+pandas>=2.2.2
 plotnine>=0.10.1
 scipy>=1.10.1
-plydata>=0.4.3
 ```
 
 ### User installation
@@ -25,4 +24,9 @@ You can install ggcorrplot from `pypi` using pip
 pip install ggcorrplot
 ```
 Find out more at https://github.com/enfantbenidedieu/ggcorrplot/blob/master/ggcorrplot.ipynb.
+
+## Authors
+
+Duvérier DJIFCK ZEBAZE [duverierdjifack@gmail.com](mailto:duverierdjifack@gmail.com)
+
     
