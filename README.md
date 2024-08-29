@@ -61,4 +61,4 @@ print(p)
 
 ## 3 Author(s)
 
-Duvérier DJIFCK ZEBAZE [djifacklab@gmail.com](mailto:djifacklab@gmail.com)
+Duvérier DJIFACK ZEBAZE [djifacklab@gmail.com](mailto:djifacklab@gmail.com)
