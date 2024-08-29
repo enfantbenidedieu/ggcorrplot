@@ -16,21 +16,21 @@
 
 The ggcorrplot package can be used to visualize easily a correlation matrix using plotnine. It provides a solution for reordering the correlation matrix and displays the significance level on the correlogram. It includes also a function for computing a matrix of correlation p-values.
 
-## Installation
+## 1 Installation
 
-### Dependencies
+### 1.1 Dependencies
 
 ggcorrplot requires :
 
 ```bash
 Python >=3.10.5
-numpy>=1.24.4
-pandas>=2.2.2
-plotnine>=0.10.1
-scipy>=1.10.1
+numpy >=1.24.4
+pandas >=2.2.2
+plotnine >=0.10.1
+scipy >=1.10.1
 ```
 
-### User installation
+### 1.2 User installation
 
 You can install ggcorrplot from `pypi` using pip
 
@@ -38,9 +38,7 @@ You can install ggcorrplot from `pypi` using pip
 pip install ggcorrplot
 ```
 
-
-## Example
-
+## 2 Example
 
 ```python
 # Load mtcars dataset form plotnine
@@ -57,8 +55,10 @@ p = ggcorrplot(corr)
 print(p)
 ```
 
-## Author(s)
+<p align="center">
+    <img src="./figures/corrplot.png" height=300></img>
+</p>
+
+## 3 Author(s)
 
 Duvérier DJIFCK ZEBAZE [djifacklab@gmail.com](mailto:djifacklab@gmail.com)
-
-    
