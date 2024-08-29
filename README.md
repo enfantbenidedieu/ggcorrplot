@@ -1,6 +1,16 @@
-<center>
-    <img src="./figures/ggcorrplot.svg" alt="centered image" height="50%"/>
-</center>
+<p align="center">
+    <img src="./figures/ggcorrplot.svg" height=300></img>
+</p>
+
+<div align="center">
+
+[![GitHub](https://shields.io/badge/license-MIT-informational)](https://github.com/enfantbenidedieu/ggcorrplot/blob/master/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/ggcorrplot.svg?color=dark-green)](https://pypi.org/project/ggcoorplot/)
+[![Downloads](https://static.pepy.tech/badge/ggcorrplot)](https://pepy.tech/project/ggcorrplot)
+[![Downloads](https://static.pepy.tech/badge/ggcorrplot/month)](https://pepy.tech/project/ggcorrplot)
+[![Downloads](https://static.pepy.tech/badge/ggcorrplot/week)](https://pepy.tech/project/ggcorrplot)
+
+</div>
 
 # ggcorrplot: Visualization of a correlation matrix using plotnine
 
@@ -12,7 +22,7 @@ The ggcorrplot package can be used to visualize easily a correlation matrix usin
 
 ggcorrplot requires :
 
-```{python,echo=TRUE,eval=FALSE}
+```bash
 Python >=3.10.5
 numpy>=1.24.4
 pandas>=2.2.2
@@ -24,13 +34,31 @@ scipy>=1.10.1
 
 You can install ggcorrplot from `pypi` using pip
 
-```{python,echo=TRUE,eval=FALSE}
+```bash
 pip install ggcorrplot
 ```
-Find out more at https://github.com/enfantbenidedieu/ggcorrplot/blob/master/ggcorrplot.ipynb.
+
+
+## Example
+
+
+```python
+# Load mtcars dataset form plotnine
+from plotnine.data import mtcars
+# Set name as index
+mtcars = mtcars.set_index("name")
+# Compute a correlation matrix
+corr = mtcars.corr().round(1)
+from ggcorrplot import ggcorrplot
+# Visualize the correlation matrix
+# --------------------------------
+# method = "square" (default)
+p = ggcorrplot(corr)
+print(p)
+```
 
 ## Author(s)
 
-Duvérier DJIFCK ZEBAZE [duverierdjifack@gmail.com](mailto:duverierdjifack@gmail.com)
+Duvérier DJIFCK ZEBAZE [djifacklab@gmail.com](mailto:djifacklab@gmail.com)
 
     
