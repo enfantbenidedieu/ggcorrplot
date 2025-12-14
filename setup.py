@@ -1,28 +1,42 @@
 # -*- coding: utf-8 -*-
-import setuptools
+from setuptools import setup, find_packages
 
 with open("README.md", "r",encoding="utf-8") as fh:
     long_description = fh.read()
 
 # Setting up
-setuptools.setup(
+setup(
     name="ggcorrplot", 
-    version='0.0.3',
+    version='0.1.0',
     author="Duvérier DJIFACK ZEBAZE",
-    author_email="duverierdjifack@gmail.com",
+    author_email="djifacklab@gmail.com",
     description="Visualization of a Correlation Matrix using plotnine",
     long_description_content_type="text/markdown",
     long_description=long_description,
-    packages=setuptools.find_packages(),
-    install_requires=["numpy>=1.24.4",
-                      "pandas>=2.2.2",
-                      "plotnine>=0.10.1",
-                      "scipy>=1.10.1"],
-    python_requires=">=3.10",
-    package_data={"": ["*.txt"]},
+    url="https://github.com/enfantbenidedieu/ggcorrplot",
+    packages=find_packages(where="."),
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python",
+        "Topic :: Software Development",
+        "Topic :: Scientific/Engineering",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-    ]
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.11",
+    ],
+    python_requires=">=3.11",
+    install_requires=[
+        "numpy>=2.3.4",
+        "pandas>=2.3.3",
+        "scipy>=1.16.3",
+        "plotnine>=0.15.1"
+    ],
+    keywords="correlation matrix, matrix of correlation p-values, plotnine, ggplot",
+    project_urls={
+        "Bug Reports": "https://github.com/enfantbenidedieu/ggcorrplot/issues",
+        "Source": "https://github.com/enfantbenidedieu/ggcorrplot",
+        "Documentation": "https://ggcorrplot.readthedocs.io",
+    }
 )
