@@ -1,11 +1,12 @@
 <p align="center">
-    <img src="./figures/ggcorrplot.svg" height=300></img>
+    <img src="./docs/sourcs/_static/ggcorrplot.svg" height=300></img>
 </p>
 
 <div align="center">
 
+[![PyPI Version](https://img.shields.io/pypi/v/ggcorrplot.svg?color=dark-green)](https://pypi.org/project/ggcorrplot/)
+[![Python versions](https://img.shields.io/pypi/pyversions/ggcorrplot.svg)](https://pypi.org/project/ggcorrplot/)
 [![GitHub](https://shields.io/badge/license-MIT-informational)](https://github.com/enfantbenidedieu/ggcorrplot/blob/master/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/ggcorrplot.svg?color=dark-green)](https://pypi.org/project/ggcoorplot/)
 [![Downloads](https://static.pepy.tech/badge/ggcorrplot)](https://pepy.tech/project/ggcorrplot)
 [![Downloads](https://static.pepy.tech/badge/ggcorrplot/month)](https://pepy.tech/project/ggcorrplot)
 [![Downloads](https://static.pepy.tech/badge/ggcorrplot/week)](https://pepy.tech/project/ggcorrplot)
@@ -14,51 +15,117 @@
 
 # ggcorrplot: Visualization of a correlation matrix using plotnine
 
-The ggcorrplot package can be used to visualize easily a correlation matrix using plotnine. It provides a solution for reordering the correlation matrix and displays the significance level on the correlogram. It includes also a function for computing a matrix of correlation p-values.
+ggcorrplot is an open source [Python](https://www.python.org/) package dedicated to matrix of correlation visualization. It os distributed under the [MIT License](https://github.com/enfantbenidedieu/ggcorrplot/blob/master/LICENSE.txt).
 
-## 1 Installation
+# Contents
 
-### 1.1 Dependencies
+**1. [Overview](#overview)**
 
-ggcorrplot requires :
+**2. [Installation](#installation)**
 
-```bash
-Python >=3.10.5
-numpy >=1.24.4
-pandas >=2.2.2
-plotnine >=0.10.1
-scipy >=1.10.1
-```
+* [2.1 Global environmen](#genv)
+* [2.2 Virtual environment](#venv)
+* [2.3 Version](#version)
+* [2.4 Dependencies](#dependencies)
 
-### 1.2 User installation
+**3. [Example](#example)**
 
-You can install ggcorrplot from `pypi` using pip
+**4. [Documentation](#doc)**
+
+**5. [About us](#about_us)**
+
+* [5.1 Authors](#authors)
+* [5.2 Feedbacks](#authors)
+* [5.3 Citing discrimintools](#citing)
+
+## Overview <a name="overview"></a>
+
+The **ggcorrplot** package can be used to **visualize easily a correlation matrix** using [plotnine](https://plotnine.org/). It provides a solution for **reordering** the correlation matrix and displays the **significance level** on the correlogram. It includes also a function for computing a matrix of **correlation p-values**.
+
+ggcorrplot package provides two functions:
+
+* ``ggcorrplot`` for correlation matrix visualization
+*  ``cor_pmat`` which computes a matrix of correlation p-values.
+
+## Installation <a name="installation"></a>
+
+### Global environment <a name="genv"></a>
+
+You can directly install discrimintools using pip :
 
 ```bash
 pip install ggcorrplot
 ```
 
-## 2 Example
+or set a virtual environment.
 
-```python
-# Load mtcars dataset form plotnine
-from plotnine.data import mtcars
-# Set name as index
-mtcars = mtcars.set_index("name")
-# Compute a correlation matrix
-corr = mtcars.corr().round(1)
-from ggcorrplot import ggcorrplot
-# Visualize the correlation matrix
-# --------------------------------
-# method = "square" (default)
-p = ggcorrplot(corr)
-print(p)
+### Virtual environment <a name="venv"></a>
+
+Install the 64-bit version of Python 3, for instance from the [official website](https://www.python.org/). Now create a [virtual environment (venv)](https://docs.python.org/3/tutorial/venv.html) and install ggcorrplot.
+
+The virtual environment is optional but strongly recommended, in order to avoid potential conflicts with other packages.
+
+```{bash}
+PS C:\> python -m venv ggcorrplot-env # create virtual env
+PS C:\> ggcorrplot-env\Scripts\activate  # activate
+PS C:\> pip install -U ggcorrplot  # install ggcorrplot
 ```
 
-<p align="center">
-    <img src="./figures/corrplot.png" height=300></img>
-</p>
+### Version <a name="version"></a>
 
-## 3 Author(s)
+In order to check your installation, you can use.
 
-Duvérier DJIFACK ZEBAZE [djifacklab@gmail.com](mailto:djifacklab@gmail.com)
+```{python}
+import ggcorrplot
+print(ggcorrplot.__version__)
+```
+
+Using an isolated environment such as *pip venv* or *conda* makes it possible to install a specific version of discrimintools with pip and conda and its dependencies independently of any previously installed Python packages.
+
+You should always remember to activate the environment of your choice prior to running any Python command whenever you start a new terminal session.
+
+### Dependencies <a name="dependencies"></a>
+
+ggcorrplot is compatible with python version which supports both dependencies :
+
+| Packages  |  Version |
+| :-------- | :------: |
+| numpy     |  2.3.4   |
+| pandas    |  2.3.3   | 
+| scipy     |  1.16.3  |
+| plotnine  |  0.15.1  |
+
+## Example <a name="example"></a>
+
+See [examples](https://ggcorrplot.readthedocs.io/en/latest/source/examples/index.html)
+
+## Documentation <a name="doc"></a>
+
+The official documentation is hosted on [https://discrimintools.readthedocs.io](https://discrimintools.readthedocs.io).
+
+## About Us <a name="about_us"></a>
+
+### Authors <a name="authors"></a>
+
+ggcorrplot is developed and maintained by [Duvérier DJIFACK ZEBAZE](https://www.linkedin.com/in/duv%C3%A9rier-djifack-z-030097118/), the founder 
+of djifacklab (*Djifack Laboratory of Mathematics, Statistics and Economics books and packages production using Python Programming Language*).
+
+The djifacklab laboratory maintains others python librairies such as [scientisttools](https://pypi.org/project/scientisttools/), [scientistmetrics](https://pypi.org/project/scientistmetrics/), [scientistshiny](https://pypi.org/project/scientistshiny/), [scientisttseries](https://pypi.org/project/scientistshiny/) and [discrimintools]( https://pypi.org/project/discrimintools/).
+
+### Feedbacks <a name="feedbacks"></a>
+
+If you have found ggcorrplot useful in your work, research, or company, please let us know by writing to email [djifacklab@gmail.com](mailto:djifacklab@gmail.com).
+
+### Citing ggcorrplot <a name="citing"></a>
+
+If ggcorrplot has been significant in your research, and you would like to acknowledge the project in your academic publication, we suggest citing it using the following *BibTeX format*:
+
+```
+@misc{DJIFACK ZEBAZE_2023, 
+    url = {https://github.com/enfantbenidedieu/ggcorrplot}, 
+    journal = {ggcorrplot}, 
+    publisher = {ggcorrplot: Visualization of a correlation matrix using plotnine}, 
+    author = {DJIFACK ZEBAZE, Duvérier}, 
+    year = {2023}
+}
+```
