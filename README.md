@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./docs/sourcs/_static/ggcorrplot.svg" height=300></img>
+    <img src="./docs/source/_static/ggcorrplot.svg" height=300></img>
 </p>
 
 <div align="center">
@@ -42,10 +42,11 @@ ggcorrplot is an open source [Python](https://www.python.org/) package dedicated
 
 The **ggcorrplot** package can be used to **visualize easily a correlation matrix** using [plotnine](https://plotnine.org/). It provides a solution for **reordering** the correlation matrix and displays the **significance level** on the correlogram. It includes also a function for computing a matrix of **correlation p-values**.
 
-ggcorrplot package provides two functions:
+ggcorrplot package provides three functions:
 
+* ``cor_pmat`` which computes a matrix of correlation p-values.
+* ``get_melt`` which convert DataFrama from wide to long 
 * ``ggcorrplot`` for correlation matrix visualization
-*  ``cor_pmat`` which computes a matrix of correlation p-values.
 
 ## Installation <a name="installation"></a>
 
