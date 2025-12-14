@@ -36,7 +36,7 @@ ggcorrplot is an open source [Python](https://www.python.org/) package dedicated
 
 * [5.1 Authors](#authors)
 * [5.2 Feedbacks](#authors)
-* [5.3 Citing discrimintools](#citing)
+* [5.3 Citing ggcorrplot](#citing)
 
 ## Overview <a name="overview"></a>
 
@@ -52,7 +52,7 @@ ggcorrplot package provides three functions:
 
 ### Global environment <a name="genv"></a>
 
-You can directly install discrimintools using pip :
+You can directly install ggcorrplot using pip :
 
 ```bash
 pip install ggcorrplot
@@ -81,7 +81,7 @@ import ggcorrplot
 print(ggcorrplot.__version__)
 ```
 
-Using an isolated environment such as *pip venv* or *conda* makes it possible to install a specific version of discrimintools with pip and conda and its dependencies independently of any previously installed Python packages.
+Using an isolated environment such as *pip venv* or *conda* makes it possible to install a specific version of ggcorrplot with pip and conda and its dependencies independently of any previously installed Python packages.
 
 You should always remember to activate the environment of your choice prior to running any Python command whenever you start a new terminal session.
 
@@ -102,7 +102,7 @@ See [examples](https://ggcorrplot.readthedocs.io/en/latest/source/examples/index
 
 ## Documentation <a name="doc"></a>
 
-The official documentation is hosted on [https://discrimintools.readthedocs.io](https://discrimintools.readthedocs.io).
+The official documentation is hosted on [https://ggcorrplot.readthedocs.io](https://ggcorrplot.readthedocs.io).
 
 ## About Us <a name="about_us"></a>
 
